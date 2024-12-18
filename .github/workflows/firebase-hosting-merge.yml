@@ -2,19 +2,35 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on merge
+
 on:
   push:
     branches:
-      - main
+      - main  # Trigger deployment when code is pushed to the main branch
+
 jobs:
   build_and_deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # The environment for running the job (Ubuntu)
+
     steps:
-      - uses: actions/checkout@v4
-      - run: npm run build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Checkout code
+        uses: actions/checkout@v4  # Step to check out your code from the repository
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2  # Set up Node.js
         with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_AYAUDIORENT }}
-          channelId: live
-          projectId: ayaudiorent
+          node-version: '16'  # Specify the version of Node.js you are using (adjust as needed)
+
+      - name: Install dependencies
+        run: npm install  # Install all dependencies listed in package.json, including Vite
+
+      - name: Build the project
+        run: npm run build  # Run the Vite build command to create the production build
+
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0  # Deploy to Firebase Hosting
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}  # GitHub token for authentication
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_AYAUDIORENT }}  # Firebase service account key
+          channelId: live  # Specify that this is the live channel for deployment
+          projectId: ayaudiorent  # Your Firebase project ID
