@@ -17,9 +17,9 @@ jobs:
         uses: actions/checkout@v4  # Step to check out your code from the repository
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2  # Set up Node.js
+        uses: actions/setup-node@v3  # Set up Node.js
         with:
-          node-version: '16'  # Specify the version of Node.js you are using (adjust as needed)
+          node-version: '18'  # Specify the version of Node.js you are using (adjust as needed)
 
       - name: Install dependencies
         run: npm install  # Install all dependencies listed in package.json, including Vite
