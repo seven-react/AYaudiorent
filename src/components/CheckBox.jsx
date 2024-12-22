@@ -6,7 +6,7 @@ const checkboxOptions = [
   { label: "None - I will Pickup the Equipment at Your Store", value: "none" },
 ];
 
-const Checkbox = ({onSelectOptions  }) => {
+const CheckBox = ({onSelectOptions  }) => {
   const [formData, setFormData] = useState({
     selectedOptions: [],
     tooltipMessage: "",
@@ -83,4 +83,4 @@ const Checkbox = ({onSelectOptions  }) => {
   );
 };
 
-export default Checkbox;
+export default CheckBox;
