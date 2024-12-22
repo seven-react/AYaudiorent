@@ -1,3 +1,155 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth; /* Smooth scrolling for the page */
+ 
+}
+
+body {
+  background: #ffffff; /* White background for the body */
+  font-family: 'Open Sans', sans-serif; /* Set Open Sans as the primary font for the body */
+}
+
+.source-sans-pro {
+  font-family: 'Source Sans Pro', sans-serif; /* Override class for specific text */
+}
+
+
+
+
+/* Pointer styling inside the circular border */
+.pointer {
+  width: 2px;                   /* Thin pointer */
+  height: 5px;                  /* Height of pointer */
+  background-color: white;      /* Color of the pointer */
+  border-radius: 2px;           /* Rounded edges */
+  position: absolute;
+  left: 50%;                    /* Center horizontally */
+  top: 10px;                    /* Position inside the circle */
+  transform: translateX(-50%);  /* Center alignment adjustment */
+}
+
+
+
+
+/* Hover animation for the scroll SVG */
+@-webkit-keyframes mouse-scroll-btn-roll-over {
+  0% {
+      stroke-dashoffset: 120; /* Start hidden */
+  }
+  100% {
+      stroke-dashoffset: 0; /* Fully visible */
+  }
+}
+
+@keyframes mouse-scroll-btn-roll-over {
+  0% {
+      stroke-dashoffset: 120; /* Start hidden */
+  }
+  100% {
+      stroke-dashoffset: 0; /* Fully visible */
+  }
+}
+
+@-webkit-keyframes mouse-scroll-btn-roll-out {
+  0% {
+      stroke-dashoffset: 0; /* Start fully visible */
+  }
+  100% {
+      stroke-dashoffset: -120; /* Slide out */
+  }
+}
+
+@keyframes mouse-scroll-btn-roll-out {
+  0% {
+      stroke-dashoffset: 0; /* Start fully visible */
+  }
+  100% {
+      stroke-dashoffset: -120; /* Slide out */
+  }
+}
+
+.scroll-btn {
+  stroke-dasharray: 120;/*Adjust based on your design for total stroke length*/
+  transition: stroke-dashoffset 0.3s ease;/* Smooth transition effect */
+
+}
+
+.scroll-btn:hover {
+  animation: mouse-scroll-btn-roll-over 0.3s forwards; /* Animation on hover */
+}
+
+.scroll-btn:focus {
+  animation: mouse-scroll-btn-roll-out 0.3s forwards; /* Animation on focus */
+}
+
+
+
+
+
+/* Custom animations for nudge effect */
+@keyframes nudgeMouse {
+  0% {
+    transform: translateY(0); /* Original position */
+  }
+  20% {
+    transform: translateY(-8px); /* Nudge up */
+  }
+  40% {
+    transform: translateY(0); /* Return to original position */
+  }
+  60% {
+    transform: translateY(-4px); /* Slight nudge up again */
+  }
+  80% {
+    transform: translateY(0); /* Return to original position */
+  }
+  100% {
+    transform: translateY(0); /* Ensure it's back to original */
+  }
+}
+
+/* Animation class for nudge */
+.animate-nudgeMouse {
+  animation: nudgeMouse 2s ease-in-out infinite; /* Infinite nudge animation */
+}
+
+/* Custom animations for arrow pointer */
+@keyframes arrowFadeSlide {
+  0% {
+    transform: translateY(0); /* Original position */
+    opacity: 1; /* Fully visible */
+  }
+  25% {
+    transform: translateY(10px); /* Move down */
+    opacity: 0.5; /* Fade slightly */
+  }
+
+  50% {
+    transform: translateY(10px); /* Move down */
+    opacity: 0.25; /* Fade slightly */
+  }
+  100% {
+    transform: translateY(20px); /* Move further down */
+    opacity: 0; /* Completely transparent */
+  }
+}
+
+/* Animation class for arrow pointer */
+.animate-arrowFadeSlide {
+  animation: arrowFadeSlide 2.5s ease-in-out infinite;
+  /*Infinitefadeandslideanimation*/
+  -webkit-animation: arrowFadeSlide 2.5s ease-in-out infinite;
+}
