@@ -3,7 +3,7 @@ import Footer from "@components/Footer";
 import FooterWidgets from "@components/FooterWidgets";
 import Navbar from "@components/Navbar";
 import CustomDatePicker from "@components/CustomDatePicker"
-import checkbox from "@components/checkbox"
+import CheckBox from "@components/CheckBox"
 
 
-export { Footer, FooterWidgets, Navbar, CustomDatePicker,checkbox };
+export { Footer, FooterWidgets, Navbar, CustomDatePicker,CheckBox};
