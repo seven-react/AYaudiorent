@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { db } from "@lib/firebase-config";
 import { collection, addDoc } from "firebase/firestore";
 import CustomDatePicker from "@components/CustomDatePicker";
-import CheckBox from "@components/CheckBox"
+import CheckBox from "@components/CheckBox";
+//import Validation from "@/utils/validation";
+
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
