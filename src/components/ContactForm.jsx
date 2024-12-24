@@ -57,15 +57,15 @@ const handleSelectOptions = (updatedOptions) => {
       // Add document to Firestore
       await addDoc(collection(db, "submissions"), formData);
       setFormData({
-      //   firstName: "",
-      //   lastName: "",
-      //   email: "",
-      //   phone: "",
-      //   dateNeeded: "",
-      //   message: "",
-      // selectedOptions: [],
-      //delivery_address,
-     // equipment,
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        dateNeeded: "",
+        message: "",
+      selectedOptions: [],
+      delivery_address: "",
+      equipment: "",
       }); // Clear the form
       setStatus("Submission successful!");
     } catch (error) {
