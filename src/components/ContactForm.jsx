@@ -121,7 +121,6 @@ const handleSelectOptions = (updatedOptions) => {
           </div>
         </div>
 
-        {/* Email */}
         
         
         {/* email */}

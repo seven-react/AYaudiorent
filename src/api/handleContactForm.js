@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, serverTimestamp } from "firebase/firestore";
 
+
+dotenv.config();
 // Firebase configuration (replace with your Firebase config)
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -9,7 +11,6 @@ const firebaseConfig = {
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
-
 };
 
 
@@ -18,6 +19,13 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
+// uncomment this line to use the emulator
+// import { connectFirestoreEmulator } from "firebase/firestore";
+
+// if (process.env.NODE_ENV === "development") {
+//   connectFirestoreEmulator(db, "127.0.0.1", 8080); // matches your emulator port
+// }
 
 export default async function handleContactForm(req, res) {
   if (req.method === "POST") {
